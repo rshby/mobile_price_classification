@@ -54,5 +54,19 @@ async def showAllDataBaru():
     except Exception as e:
         print(f"kesalahan API showAllDataBAru: {e}")
 
+# route API yang digunakan untuk melihat data hasil prediksi
+@app.get("/hasilprediksi")
+async def showHasilPrediksi():
+    try:
+        hasil = mobile.showHasilPrediksi()
+        data = {
+            "message": "success",
+            "data": hasil
+        }
+        return data
+    except Exception as e:
+        print(f"kesalahan API showHasilPrediksi: {e}")
+
+# apabila file dijalankan
 if __name__ == "__main__":
     uvicorn.run("app:app", host="localhost", port=8008, reload=True)

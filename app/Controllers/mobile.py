@@ -79,6 +79,7 @@ def ObjToStr(obj):
     except Exception as e:
         print(f"kesalahan fucntion ObjToStr: {e}")
 
+# function yang digunakan untuk melihat databaru dari database
 def showAllDataBaru():
     try:
         dbhasil = db.showAllDataBaru()
@@ -90,3 +91,10 @@ def showAllDataBaru():
         return data_list
     except Exception as e:
         print(f"kesalahan function showAllDatabaru: {e}")
+
+# function yang digunakan untuk melihat data hasil_prediksi
+def showHasilPrediksi():
+    try:
+        return pd.read_feather(r"C:\Users\ROG\Documents\mobile_price_classification\experiment\hasil_prediksi.feather").to_dict(orient="records")
+    except Exception as e:
+        print(f"kesalahan function showHasilPrediksi: {e}")
